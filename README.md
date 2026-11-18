@@ -1,8 +1,16 @@
 # tiny-chess-4k
 
-My entry for make.fun's **tiny-chess-01**: the strongest chess engine you can
-write in 4,096 bytes of Python. `main.py` is the whole engine, LZMA-packed
-(4,058 bytes as committed).
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/clay390/tiny-chess-4k/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/clay390/tiny-chess-4k/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+
+A 4 KB Python chess engine for make.fun's tiny-chess-01 bounty: tapered PeSTO evaluation and PVS search under a fixed node budget. `main.py` is the whole engine, LZMA-packed (4,078 bytes as committed).
+
+## Run it
+
+```sh
+node cli/makefun.mjs grade-local --kit <tiny-chess-01-kit> --bot <this repo> --driver docker
+```
 
 ## How it plays
 
@@ -33,3 +41,7 @@ technique. I studied the house sunfish baseline and public entries'
 architecture for ideas (tapered tables, node budgets, LZMA packing) and
 benchmarked against them; no code was copied. The engine is deterministic:
 no clock, no unseeded randomness, no model calls.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=6y32g3kc&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
