@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/tiny-chess-01/clay390/tiny-chess-4k/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 [![reward](https://make.fun/badge/tiny-chess-01/clay390/tiny-chess-4k/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 
-A 4 KB Python chess engine for make.fun's tiny-chess-01 bounty: tapered PeSTO evaluation and PVS search under a fixed node budget. `main.py` is the whole engine, LZMA-packed (4,078 bytes as committed).
+A 4 KB Python chess engine for make.fun's tiny-chess-01 bounty: tapered PeSTO evaluation and PVS search under a fixed node budget. `main.py` is the whole engine, LZMA-packed with the kit's `makefun compress` (4,049 bytes as committed).
 
 ## Run it
 
@@ -27,11 +27,12 @@ node cli/makefun.mjs grade-local --kit <tiny-chess-01-kit> --bot <this repo> --d
 ## Build
 
 The readable source is `src/engine.py` in my workspace (kept out of this
-repo: the 8,192-byte snapshot cap leaves no room for it). Pack it with:
+repo: the 8,192-byte snapshot cap leaves no room for it). Pack it with the
+kit's own packer — the entrypoint must be the bytes it writes:
 
 ```
-python3 build.py src/engine.py main.py   # verifies perft(3) = 8902
-python3 tests/perft.py                   # move-generation correctness
+node cli/makefun.mjs compress src/engine.py --out main.py   # then verify perft(3) = 8902
+python3 tests/perft.py                                      # move-generation correctness
 ```
 
 ## Notes
